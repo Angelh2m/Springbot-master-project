@@ -6,6 +6,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import com.app.springbootdatajpa.models.entity.Cliente;
+import com.app.springbootdatajpa.models.inter.IClienteDao;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

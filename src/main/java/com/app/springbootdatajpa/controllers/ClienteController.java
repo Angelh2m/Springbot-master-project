@@ -1,6 +1,6 @@
 package com.app.springbootdatajpa.controllers;
 
-import com.app.springbootdatajpa.models.dao.IClienteDao;
+import com.app.springbootdatajpa.models.inter.IClienteDao;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

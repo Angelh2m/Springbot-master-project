@@ -1,4 +1,5 @@
-package com.app.springbootdatajpa.models.dao;
+
+package com.app.springbootdatajpa.models.inter;
 
 import java.util.List;
 
@@ -12,3 +13,4 @@ public interface IClienteDao {
     public List<Cliente> findAll();
 
 }
+
