@@ -13,6 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  * ClienteDaoImpl
+ *  ------------------ EXPLANATION ----------------------
+ * DTO DATA TRANSFER OBJECT USING EntityManager- IMPLEMENTATION
+ * 
  */
 @Repository("clienteDaoJPA")
 public class ClienteDaoImpl implements IClienteDao {
@@ -24,8 +27,32 @@ public class ClienteDaoImpl implements IClienteDao {
     @Transactional(readOnly=true)
     @Override
     public List<Cliente> findAll() {
-        // TODO Auto-generated method stub
+
         return em.createQuery("from Cliente").getResultList();
+    }
+
+    @Transactional
+    @Override
+    public void save(Cliente cliente) {
+        if (cliente.getId() != null && cliente.getId() > 0) {
+            em.merge(cliente);
+        }else{
+            em.persist(cliente);
+        }
+    }
+
+    @Transactional
+    @Override
+    public Cliente findOne(Long id) {
+        return em.find(Cliente.class, id);
+    }
+
+
+    @Transactional
+    @Override
+    public void delete(Long id) {
+        Cliente cliente = findOne(id);
+        em.remove(cliente);
     }
 
     
